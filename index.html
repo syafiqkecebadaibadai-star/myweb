@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAWNAWEBSTORE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #000;
+      color: #00f0ff;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .login-box {
+      background: #161b22;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00f0ff;
+      text-align: center;
+      width: 300px;
+      margin: 100px auto;
+    }
+
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #00f0ff;
+      background: #0d1117;
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #00f0ff;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #00f0ff;
+      border-radius: 50%;
+      animation: move 10s linear infinite;
+    }
+
+    @keyframes move {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00f0ff;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-shadow: 0 0 5px #00f0ff;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .thank-you {
+      background: rgba(0, 0, 20, 0.6);
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 15px;
+      font-weight: 600;
+      text-shadow: 0 0 5px #00f0ff;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #01162d;
+      color: #00f0ff;
+      border: 1px solid #00f0ff;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00f0ff;
+      color: #000;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5em; }
+      .btn { font-size: 14px; padding: 10px; }
+      .thank-you { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop hidden>
+    <source src="https://files.catbox.moe/o54k30.mp4" type="audio/mp4">
+  </audio>
+
+  <div class="stars" id="stars"></div>
+
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <!-- HOME PAGE -->
+  <div id="homePage" class="container hidden">
+    <div class="logo">
+      <img src="https://i.ibb.co/1XJxhh5/deppp.jpg" alt="SAWNAWEBSTORE" />
+    </div>
+    <h1 id="greeting">Selamat Datang</h1>
+    <p class="subtitle">SAWNA WEBSTORE MENYEDIAKAN JASA ORDER GABUT</p>
+
+    <div class="button-container">
+      <a href="https://www.tiktok.com/@fiqq.126?_t=ZS-8ylIXaIi3tf&_r=1" class="btn" onclick="klik()">SAWNA TIKTOK</a>
+      <a href="https://www.instagram.com/fiqq_126?igsh=NTB4YXNiaWQ0c244" class="btn" onclick="klik()">SAWNA INSTAGRAM</a>
+      <a href="https://youtube.com/@fikzz.12?si=4qHZjlOlYJnkevh5" class="btn" onclick="klik()">My Youtube</a>
+      <a href="https://sekolah.data.kemdikbud.go.id/index.php/chome/profil/500DEA95-2BF5-E011-B248-67DFAA233A3B" class="btn">My School</a></a>
+      <a href="https://wa.me/6281290505823" class="btn" onclick="klik()">📲 WhatsApp Admin</a>
+      </a>
+    </div>
+
+    <div class="thank-you">Terima kasih telah Mengunjungi Sawna Webstore</div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Bintang animasi
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * -100 + "vh";
+      star.style.animationDuration = Math.random() * 5 + 5 + "s";
+      star.style.opacity = Math.random();
+      stars.appendChild(star);
+    }
+
+    // Login function
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "sawna" && pass === "123") {
+        localStorage.setItem("isLoggedIn", "true");
+        showHome();
+      } else {
+        document.getElementById("error").textContent = "Username atau password salah.";
+      }
+    }
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      showLogin();
+    }
+
+    // Klik efek suara
+    function klik() {
+      const audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_603b1c59f3.mp3?filename=click-124467.mp3");
+      audio.play();
+    }
+
+    // Tampilkan halaman login / home
+    function showHome() {
+      document.getElementById("loginPage").classList.add("hidden");
+      document.getElementById("homePage").classList.remove("hidden");
+
+      // Salam otomatis
+      const h = new Date().getHours();
+      const g = document.getElementById("greeting");
+      if (h < 11) g.textContent = "Selamat Pagi!";
+      else if (h < 15) g.textContent = "Selamat Siang!";
+      else if (h < 18) g.textContent = "Selamat Sore!";
+      else g.textContent = "Selamat Malam!";
+    }
+
+    function showLogin() {
+      document.getElementById("loginPage").classList.remove("hidden");
+      document.getElementById("homePage").classList.add("hidden");
+    }
+
+    // Saat halaman dibuka, cek login
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      showHome();
+    } else {
+      showLogin();
+    }
+  </script>
+</body>
+</html>
